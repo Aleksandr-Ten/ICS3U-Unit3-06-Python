@@ -11,15 +11,24 @@ def main():
     # this function checks if the number user guessed is correct
 
     # input
-    random_number = random.randint(0, 9)
-    guessing_number = int(input("Enter the guessing number:"))
-    print("")
+    guessed_number_string = input("Enter a number between 0 and 9: ")
+    random_number = random.randint(0, 9)  # a number between 0 and 9
 
-    # process and output
-    if guessing_number == random_number:
-        print("Correct!")
-    else:
-        print("Incorrect!")
+    # process & output
+    try:
+        guessed_number = int(guessed_number_string)
+        if guessed_number == random_number:
+            print("You Guessed Correctly!")
+        else:
+            print(
+                "You Guessed Incorrectly. The correct number was {}.".format(
+                    random_number
+                )
+            )
+    except Exception:
+        print("Please input an Integer.")
+    finally:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
